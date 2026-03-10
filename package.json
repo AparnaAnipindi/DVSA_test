@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "test:e2e": "cucumber-js --import tests/ui/steps/**/*.ts"
+    "test:e2e": "cucumber-js --import tests/ui/steps/**/*.ts",
+    "test": "playwright test",
+    "test:ui": "playwright test tests/ui",
+    "test:api": "playwright test tests/api"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^12.7.0",
