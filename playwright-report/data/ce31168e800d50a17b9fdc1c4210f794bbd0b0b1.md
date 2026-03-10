@@ -1,0 +1,136 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - banner [ref=e3]:
+    - generic [ref=e4]:
+      - link "GOV.UK MOT history API" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "GOV.UK" [ref=e7]
+        - generic [ref=e20]: MOT history API
+      - search [ref=e22]:
+        - generic [ref=e23]: Search site
+        - generic [ref=e24]:
+          - generic [ref=e25]:
+            - status
+            - status
+          - combobox "Search site" [ref=e26]
+  - navigation "Menu" [ref=e30]:
+    - list [ref=e31]:
+      - listitem [ref=e32]:
+        - link "Documentation" [ref=e33] [cursor=pointer]:
+          - /url: /
+      - listitem [ref=e34]:
+        - link "Register for API" [ref=e35] [cursor=pointer]:
+          - /url: /mot-history-api/register
+      - listitem [ref=e36]:
+        - link "Get support" [ref=e37] [cursor=pointer]:
+          - /url: /mot-history-api/support
+      - listitem [ref=e38]:
+        - link "Check API status" [ref=e39] [cursor=pointer]:
+          - /url: https://motservice.status.dvsa.gov.uk
+  - generic [ref=e40]:
+    - navigation "Breadcrumb" [ref=e41]:
+      - list [ref=e42]:
+        - listitem [ref=e43]:
+          - link "MOT history API" [ref=e44] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e45]:
+          - link "Rate limits" [ref=e46] [cursor=pointer]:
+            - /url: /mot-history-api/rate-limits/
+    - main [ref=e47]:
+      - generic [ref=e48]:
+        - navigation "Pages in this section" [ref=e50]:
+          - heading "Pages in this section" [level=2] [ref=e51]
+          - list [ref=e52]:
+            - listitem [ref=e53]:
+              - link "API specification" [ref=e54] [cursor=pointer]:
+                - /url: /mot-history-api/api-specification/
+            - listitem [ref=e55]:
+              - link "Authentication" [ref=e56] [cursor=pointer]:
+                - /url: /mot-history-api/authentication/
+            - listitem [ref=e57]:
+              - link "Download vehicle and MOT history data" [ref=e58] [cursor=pointer]:
+                - /url: /mot-history-api/download-vehicle-mot-history-data/
+            - listitem [ref=e59]:
+              - link "Error codes" [ref=e60] [cursor=pointer]:
+                - /url: /mot-history-api/error-codes/
+            - listitem [ref=e61]:
+              - link "Rate limits" [ref=e62] [cursor=pointer]:
+                - /url: /mot-history-api/rate-limits/
+            - listitem [ref=e63]:
+              - link "Version history" [ref=e64] [cursor=pointer]:
+                - /url: /mot-history-api/version-history/
+        - generic [ref=e65]:
+          - heading "Rate limits" [level=1] [ref=e67]
+          - generic [ref=e68]:
+            - paragraph [ref=e69]: Rate limiting is a technique used to control the amount of incoming and outgoing traffic to or from a network. For APIs, it is a method used to control the number of requests a client can make to the API within a certain time period.
+            - paragraph [ref=e70]: "Rate limiting:"
+            - list [ref=e71]:
+              - listitem [ref=e72]: prevents abuse of the API
+              - listitem [ref=e73]: protects it from being overwhelmed
+              - listitem [ref=e74]: ensures fair usage for users
+            - paragraph [ref=e75]: "There are three main types of rate limits:"
+            - table [ref=e76]:
+              - rowgroup [ref=e77]:
+                - row "Limit type Description Limit" [ref=e78]:
+                  - columnheader "Limit type" [ref=e79]
+                  - columnheader "Description" [ref=e80]
+                  - columnheader "Limit" [ref=e81]
+              - rowgroup [ref=e82]:
+                - row "Quota Maximum number of requests you can make in a day 500000" [ref=e83]:
+                  - cell "Quota" [ref=e84]:
+                    - strong [ref=e85]: Quota
+                  - cell "Maximum number of requests you can make in a day" [ref=e86]
+                  - cell "500000" [ref=e87]
+                - row "Burst Maximum number of requests you can make in a short period of time. This helps the API to manage sudden spikes in traffic 10" [ref=e88]:
+                  - cell "Burst" [ref=e89]:
+                    - strong [ref=e90]: Burst
+                  - cell "Maximum number of requests you can make in a short period of time. This helps the API to manage sudden spikes in traffic" [ref=e91]
+                  - cell "10" [ref=e92]
+                - row "RPS Average number of requests you can make per second 15" [ref=e93]:
+                  - cell "RPS" [ref=e94]:
+                    - strong [ref=e95]: RPS
+                  - cell "Average number of requests you can make per second" [ref=e96]
+                  - cell "15" [ref=e97]
+            - paragraph [ref=e98]:
+              - text: If you exceed these limits you will receive a response with
+              - code [ref=e99]: 429 Too Many Requests
+              - text: HTTP status code. See
+              - link "error codes" [ref=e100] [cursor=pointer]:
+                - /url: /mot-history-api/error-codes
+              - text: for further information.
+            - heading "What happens if you exceed your quota" [level=3] [ref=e101]:
+              - link "What happens if you exceed your quota" [ref=e102] [cursor=pointer]:
+                - /url: "#what-happens-if-you-exceed-your-quota"
+            - paragraph [ref=e103]: If you exceed your daily quota, your key will be restricted for 24 hours from the point you have exceeded the limit. You will not be able to use the API during this period. Your access will be reinstated automatically.
+            - heading "Exponential backoff" [level=3] [ref=e104]:
+              - link "Exponential backoff" [ref=e105] [cursor=pointer]:
+                - /url: "#exponential-backoff"
+            - paragraph [ref=e106]: Exponential backoff is a way to handle errors in network applications. It means that the client tries again if a request fails, but waits longer each time.
+            - paragraph [ref=e107]: "The steps are:"
+            - list [ref=e108]:
+              - listitem [ref=e109]: Send a request to the server.
+              - listitem [ref=e110]: If the request fails, wait for a while and try again.
+              - listitem [ref=e111]: If the request fails again, wait longer and try again.
+              - listitem [ref=e112]: Stop retrying when the request succeeds or after a certain number of tries.
+            - paragraph [ref=e113]: This way works well when the server is busy or the client has network problems. It gives the server and the network a chance to get better.
+  - contentinfo [ref=e114]:
+    - generic [ref=e126]:
+      - generic [ref=e127]:
+        - heading "Support links" [level=2] [ref=e128]
+        - list [ref=e129]:
+          - listitem [ref=e130]:
+            - link "Privacy" [ref=e131] [cursor=pointer]:
+              - /url: https://www.gov.uk/government/publications/dvsa-privacy-notices/mot-history-api-privacy-notice
+        - img [ref=e132]
+        - generic [ref=e134]:
+          - text: All content is available under the
+          - link "Open Government Licence v3.0" [ref=e135] [cursor=pointer]:
+            - /url: https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+          - text: ", except where otherwise stated"
+      - link "© Crown copyright" [ref=e137] [cursor=pointer]:
+        - /url: https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/
+```
