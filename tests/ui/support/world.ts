@@ -12,7 +12,9 @@ export class CustomWorld extends World {
   }
 
   async openBrowser() {
-    this.browser = await chromium.launch({ headless: false });
+    // Use headless mode in CI/Docker, headed locally
+    const isCI = process.env.CI === 'true' || process.env.DOCKER === 'true';
+    this.browser = await chromium.launch({ headless: isCI });
     this.page = await this.browser.newPage();
   }
 

@@ -1,8 +1,9 @@
-FROM mcr.microsoft.com/playwright:v1.43.1-jammy
+FROM mcr.microsoft.com/playwright:v1.58.2-jammy
+ENV DOCKER=true
 
 WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
 
-CMD ["npx", "cucumber-js"]
+CMD ["npx", "tsx", "node_modules/.bin/cucumber-js", "--import", "tests/ui/steps/**/*.ts"]
