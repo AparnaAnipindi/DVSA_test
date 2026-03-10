@@ -1,3 +1,5 @@
+// Load environment variables from .env file if present
+import 'dotenv/config';
 import type { APIRequestContext } from '@playwright/test';
 import { ConfidentialClientApplication } from '@azure/msal-node';
 
